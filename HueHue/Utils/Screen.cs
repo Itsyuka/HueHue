@@ -1,19 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using HueHue.Common;
 
 namespace HueHue.Utils
 {
     public class Screen
     {
-        public unsafe static byte[] GetBytes(int* ptr, int x, int y)
+        public unsafe static uint GetPointedValue(uint* ptr, int x, int y)
         {
             int pixelLocation = (x + (1920 * y));
-            return new byte[] { (byte)((ptr[pixelLocation] >> 8) & 0xFF), (byte)((ptr[pixelLocation] >> 16) & 0xFF), (byte)(ptr[pixelLocation] & 0xFF) };
+            Console.WriteLine(ptr[pixelLocation]);
+            return ptr[pixelLocation];
         }
 
-        public unsafe static byte[] GetAveragePixelColorBytes(int* ptr, int x, int y, int radius = 1)
+        public unsafe static Color GetAverageColor(uint* ptr, int x, int y, int radius = 1)
         {
-            List<byte[]> colors = new List<byte[]>();
+            List<Color> colors = new List<Color>();
 
             // Left of X
             for (int n = 0; n < radius; n++)
@@ -21,7 +23,7 @@ namespace HueHue.Utils
                 int m = x - n;
                 if (m >= 0 && m < 1920)
                 {
-                    colors.Add(GetBytes(ptr, m, y));
+                    colors.Add(Color.FromUInt(GetPointedValue(ptr, x, y)));
                 }
             }
 
@@ -31,7 +33,7 @@ namespace HueHue.Utils
                 int m = x + n;
                 if (m >= 0 && m < 1920)
                 {
-                    colors.Add(GetBytes(ptr, m, y));
+                    colors.Add(Color.FromUInt(GetPointedValue(ptr, x, y)));
                 }
             }
 
@@ -41,7 +43,7 @@ namespace HueHue.Utils
                 int m = y - n;
                 if (m >= 0 && m < 1080)
                 {
-                    colors.Add(GetBytes(ptr, x, m));
+                    colors.Add(Color.FromUInt(GetPointedValue(ptr, x, y)));
                 }
             }
 
@@ -51,22 +53,11 @@ namespace HueHue.Utils
                 int m = y + n;
                 if (m >= 0 && m < 1080)
                 {
-                    colors.Add(GetBytes(ptr, x, m));
+                    colors.Add(Color.FromUInt(GetPointedValue(ptr, x, y)));
                 }
             }
 
-            int R = 0;
-            int G = 0;
-            int B = 0;
-
-            for (int i = 0; i < colors.Count; i++)
-            {
-                R += colors[i][0];
-                G += colors[i][1];
-                B += colors[i][2];
-            }
-
-            return new byte[] { (byte)(R / colors.Count), (byte)(G / colors.Count), (byte)(B / colors.Count) };
+            return colors.ToArray().Average();
         }
     }
 }

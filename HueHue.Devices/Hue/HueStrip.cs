@@ -1,30 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using HueHue.Common;
+using HueHue.Devices.Core;
 
 namespace HueHue.Devices.Hue
 {
-    public class HueStrip
+    public class HueStrip : LedStripBase
     {
         public int Id { get; set; }
 
-        public List<LedColor> Leds = new List<LedColor>();
-
-        public HueStrip()
+        public HueStrip() :
+            base(ledCount: 10, defaultColor: Color.Black)
         {
-            for (int i = 0; i < 10; i++)
-            {
-                Leds.Add(new LedColor());
-            }
         }
 
         public byte[] LedBytes()
         {
             List<byte> bytes = new List<byte>();
             
-            foreach (LedColor ledColor in Leds)
+            foreach (Led ledColor in Leds)
             {
-                bytes.AddRange(ledColor.ToArray());
+                bytes.AddRange(ledColor.Color.ToRgbBytes());
             }
 
             return bytes.ToArray();

@@ -1,10 +1,14 @@
 ﻿using System;
 
+using HueHue.Common;
 using HueHue.Devices.Hue;
 using HueHue.Utils;
+
 using SharpDX;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;
+
+using Color = HueHue.Common.Color;
 using Device = SharpDX.Direct3D11.Device;
 using MapFlags = SharpDX.Direct3D11.MapFlags;
 using Resource = SharpDX.DXGI.Resource;
@@ -45,8 +49,10 @@ namespace HueHue
 
             OutputDuplication duplicatedOutput = output1.DuplicateOutput(device);
 
-            HueDevice hueDevice = new HueDevice(ledStrips: 4);
+            HueDevice hueDevice = new HueDevice();
             hueDevice.Start();
+
+            Console.ReadLine();
 
             while (true)
             {
@@ -66,36 +72,35 @@ namespace HueHue
 
                     unsafe
                     {
-                        int* sourcePtr = (int*)mapSource.DataPointer;
-                        for (int i = 0; i < hueDevice.HueStrips.Count; i++)
+                        uint* sourcePtr = (uint*)mapSource.DataPointer;
+                        for (int i = 0; i < hueDevice.LedStrips.Count; i++)
                         {
                             // Right, Top, Left, Bottom
                             for (int p = 0; p < 10; p++)
                             {
-                                byte[] rgb;
+                                Color color;
                                 if (i == 0)
                                 {
-                                    rgb = Screen.GetAveragePixelColorBytes(sourcePtr, 1919, Math.Clamp(1080 - (108 * p), 0, 1079), radius);
+                                    color = Screen.GetAverageColor(sourcePtr, 1919, Math.Clamp(1080 - (108 * p), 0, 1079), radius);
                                 }
                                 else if (i == 1)
                                 {
-                                    rgb = Screen.GetAveragePixelColorBytes(sourcePtr, Math.Clamp(1620 - (300 + (132 * p)), 300, 1620), 0, radius);
+                                    color = Screen.GetAverageColor(sourcePtr, Math.Clamp(1620 - (300 + (132 * p)), 300, 1620), 0, radius);
                                 }
                                 else if (i == 2)
                                 {
-                                    rgb = Screen.GetAveragePixelColorBytes(sourcePtr, 0, Math.Clamp(108 * p, 0, 1079), radius);
+                                    color = Screen.GetAverageColor(sourcePtr, 0, Math.Clamp(108 * p, 0, 1079), radius);
                                 }
                                 else
                                 {
-                                    rgb = Screen.GetAveragePixelColorBytes(sourcePtr, Math.Clamp(300 + (132 * p), 300, 1620), 1079, radius);
+                                    color = Screen.GetAverageColor(sourcePtr, Math.Clamp(300 + (132 * p), 300, 1620), 1079, radius);
                                 }
-                                hueDevice.HueStrips[i].Leds[p].SetAverage(rgb);
+                                hueDevice.LedStrips[i].Leds[p].Color = hueDevice.LedStrips[i].Leds[p].Color.Average(color);
                             }
                         }
                     }
 
                     device.ImmediateContext.UnmapSubresource(screenTexture, 0);
-
                     screenResource.Dispose();
                     duplicatedOutput.ReleaseFrame();
                 }
