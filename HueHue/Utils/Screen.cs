@@ -9,7 +9,6 @@ namespace HueHue.Utils
         public unsafe static uint GetPointedValue(uint* ptr, int x, int y)
         {
             int pixelLocation = (x + (1920 * y));
-            Console.WriteLine(ptr[pixelLocation]);
             return ptr[pixelLocation];
         }
 
