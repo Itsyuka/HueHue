@@ -52,8 +52,6 @@ namespace HueHue
             HueDevice hueDevice = new HueDevice();
             hueDevice.Start();
 
-            Console.ReadLine();
-
             while (true)
             {
                 try
