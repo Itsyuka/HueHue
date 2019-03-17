@@ -1,5 +1,5 @@
 ﻿using System;
-
+using System.Threading.Tasks;
 using HueHue.Common;
 using HueHue.Devices.Hue;
 using HueHue.Utils;
@@ -17,8 +17,9 @@ namespace HueHue
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
+
             const int numAdapter = 0;
             const int numOutput = 0;
 
@@ -52,7 +53,20 @@ namespace HueHue
             HueDevice hueDevice = new HueDevice();
             hueDevice.Start();
 
-            while (true)
+            bool isExiting = false;
+
+            Console.CancelKeyPress += new ConsoleCancelEventHandler((s, e) =>
+            {
+                if (e.SpecialKey == ConsoleSpecialKey.ControlC)
+                {
+                    isExiting = true;
+                }
+                e.Cancel = true;
+            });
+
+            Console.WriteLine("Press CTRL+C to close gracefully");
+
+            while (!isExiting)
             {
                 try
                 {
@@ -112,6 +126,9 @@ namespace HueHue
                 }
             }
 
+            hueDevice.SetColor(Color.Black);
+            await Task.Delay(50);
+            hueDevice.Stop();
         }
     }
 }

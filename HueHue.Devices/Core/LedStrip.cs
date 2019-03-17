@@ -19,9 +19,9 @@ namespace HueHue.Devices.Core
             }
         }
 
-        public void Set(int pos)
+        public void Set(Color color)
         {
-            throw new NotImplementedException();
+            leds.ForEach(led => led.Color = color);
         }
     }
 }

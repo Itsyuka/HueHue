@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO.Ports;
 using System.Threading;
 using System.Threading.Tasks;
+using HueHue.Common;
 using HueHue.Devices.Core;
 
 namespace HueHue.Devices.Hue
@@ -39,7 +40,7 @@ namespace HueHue.Devices.Hue
                 throw new Exception("Port is already open, how did you do this?");
             }
             serialPort.Open();
-            timer = new Timer(Update, new AutoResetEvent(true), 33, 33);
+            timer = new Timer(Update, new AutoResetEvent(true), 0, 33);
         }
 
         public void Stop()
@@ -50,6 +51,14 @@ namespace HueHue.Devices.Hue
             }
             timer.Dispose();
             serialPort.Close();
+        }
+
+        public void SetColor(Color color)
+        {
+            foreach (ILedStrip strip in strips)
+            {
+                strip.Set(Color.Black);
+            }
         }
 
         // Shouldn't need async anymore since we are only polling every 33ms
