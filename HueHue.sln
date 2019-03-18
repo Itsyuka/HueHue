@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHue.PluginBase", "HueHue
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{DA1C5B28-C706-4C93-B02D-DAE01EAF60CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientLight.Plugin", "HueHue.Plugin.AmbientLight\AmbientLight.Plugin.csproj", "{98A04436-A0A5-4FAA-80C8-B3987DCAF84B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientLight.Plugin", "AmbientLight.Plugin\AmbientLight.Plugin.csproj", "{98A04436-A0A5-4FAA-80C8-B3987DCAF84B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHue.Devices", "HueHue.Devices\HueHue.Devices.csproj", "{C885FD61-71B5-45E5-BF5A-3CF56E62D28B}"
 EndProject
