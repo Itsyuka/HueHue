@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28606.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueHue", "HueHue\HueHue.csproj", "{C87F1CC0-F389-4BFF-861E-8D1BFEAA895F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHue.PluginBase", "HueHue.PluginBase\HueHue.PluginBase.csproj", "{87CB52B8-2D9D-4E7D-8EBE-F2B7AAC31BD0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueHue.PluginBase", "HueHue.PluginBase\HueHue.PluginBase.csproj", "{87CB52B8-2D9D-4E7D-8EBE-F2B7AAC31BD0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{DA1C5B28-C706-4C93-B02D-DAE01EAF60CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AmbientLight.Plugin", "AmbientLight.Plugin\AmbientLight.Plugin.csproj", "{98A04436-A0A5-4FAA-80C8-B3987DCAF84B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AmbientLight.Plugin", "AmbientLight.Plugin\AmbientLight.Plugin.csproj", "{98A04436-A0A5-4FAA-80C8-B3987DCAF84B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHue.Devices", "HueHue.Devices\HueHue.Devices.csproj", "{C885FD61-71B5-45E5-BF5A-3CF56E62D28B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueHue.Devices", "HueHue.Devices\HueHue.Devices.csproj", "{C885FD61-71B5-45E5-BF5A-3CF56E62D28B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHue.Common", "HueHue.Common\HueHue.Common.csproj", "{CABA305B-4992-40D4-B7F6-050F3074E656}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueHue.Common", "HueHue.Common\HueHue.Common.csproj", "{CABA305B-4992-40D4-B7F6-050F3074E656}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHue", "HueHue\HueHue.csproj", "{DB4FA40E-8525-43CC-A6BD-1986A7851EAA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C87F1CC0-F389-4BFF-861E-8D1BFEAA895F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C87F1CC0-F389-4BFF-861E-8D1BFEAA895F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C87F1CC0-F389-4BFF-861E-8D1BFEAA895F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C87F1CC0-F389-4BFF-861E-8D1BFEAA895F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{87CB52B8-2D9D-4E7D-8EBE-F2B7AAC31BD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{87CB52B8-2D9D-4E7D-8EBE-F2B7AAC31BD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{87CB52B8-2D9D-4E7D-8EBE-F2B7AAC31BD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,6 +37,10 @@ Global
 		{CABA305B-4992-40D4-B7F6-050F3074E656}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CABA305B-4992-40D4-B7F6-050F3074E656}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CABA305B-4992-40D4-B7F6-050F3074E656}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB4FA40E-8525-43CC-A6BD-1986A7851EAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB4FA40E-8525-43CC-A6BD-1986A7851EAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB4FA40E-8525-43CC-A6BD-1986A7851EAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB4FA40E-8525-43CC-A6BD-1986A7851EAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

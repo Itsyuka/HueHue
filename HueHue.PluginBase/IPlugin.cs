@@ -7,8 +7,6 @@ namespace HueHue.PluginBase
 {
     public interface IPlugin
     {
-        void ConfigureServices(IServiceCollection services);
-
-        Task Start(IServiceProvider services);
+        void ConfigureServices(IServiceProvider services);
     }
 }

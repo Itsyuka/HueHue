@@ -1,17 +1,16 @@
 # HueHue
 ### An Ambilight like project using the NZXT Hue+
 
-> Not really for any type of production use, has a few bugs with momentary CPU spikes and slight overuse of RAM
+> Not really for any type of production use
 
 ## Requirements
 
-- dotnet core preview 3 (it'll work with lower dotnet versions)
-- Windows 8(.1)/10 (maybe 7 /shrug)
-- Visual Studio Code 2019 (2017 might work)
+- dotnet core 2.2
+- Visual Studio Code 2017/2019
 
 ## Light setup
 
-Currently it's static for a 24" screen with the input being from bottom right
+Currently it's static for a 24" screen with the input being from bottom right (on the right side) to the top, left then bottom
 
 
 ## How it works

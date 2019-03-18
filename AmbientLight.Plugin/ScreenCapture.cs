@@ -1,4 +1,5 @@
 ﻿using System;
+using AmbientLight.Plugin.Utils;
 using HueHue.Common;
 using HueHue.Devices.Core;
 using SharpDX;
@@ -79,19 +80,19 @@ namespace AmbientLight.Plugin
                                 Color color;
                                 if (i == 0)
                                 {
-                                    color = Screen.GetAverageColor(sourcePtr, 1919, Math.Clamp(1080 - (108 * p), 0, 1079), radius);
+                                    color = Screen.GetAverageColor(sourcePtr, 1919, MathExt.Clamp(1080 - (108 * p), 0, 1079), radius);
                                 }
                                 else if (i == 1)
                                 {
-                                    color = Screen.GetAverageColor(sourcePtr, Math.Clamp(1620 - (300 + (132 * p)), 300, 1620), 0, radius);
+                                    color = Screen.GetAverageColor(sourcePtr, MathExt.Clamp(1620 - (300 + (132 * p)), 300, 1620), 0, radius);
                                 }
                                 else if (i == 2)
                                 {
-                                    color = Screen.GetAverageColor(sourcePtr, 0, Math.Clamp(108 * p, 0, 1079), radius);
+                                    color = Screen.GetAverageColor(sourcePtr, 0, MathExt.Clamp(108 * p, 0, 1079), radius);
                                 }
                                 else
                                 {
-                                    color = Screen.GetAverageColor(sourcePtr, Math.Clamp(300 + (132 * p), 300, 1620), 1079, radius);
+                                    color = Screen.GetAverageColor(sourcePtr, MathExt.Clamp(300 + (132 * p), 300, 1620), 1079, radius);
                                 }
 
                                 _ledDevice.LedStrips[i].Leds[p].SetColor(_ledDevice.LedStrips[i].Leds[p].Color.Average(color));
