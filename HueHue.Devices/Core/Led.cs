@@ -16,5 +16,8 @@ namespace HueHue.Devices.Core
             Position = position;
             Color = defaultColor ?? Color.Black;
         }
+
+        public void SetColor(Color color)
+            => Color = color;
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using HueHue.Common;
 
-namespace HueHue.Utils
+namespace AmbientLight.Plugin
 {
     public class Screen
     {

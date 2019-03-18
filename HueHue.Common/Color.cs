@@ -44,6 +44,11 @@ namespace HueHue.Common
             return new byte[3] { (byte)Red, (byte)Green, (byte)Blue };
         }
 
+        public string ToHex()
+        {
+            return Red.ToString("X2") + Green.ToString("X2") + Blue.ToString("X2");
+        }
+
         #endregion
 
 

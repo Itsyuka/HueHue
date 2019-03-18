@@ -15,17 +15,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SharpDX" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Direct3D11" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Direct3D12" Version="4.2.0" />
-    <PackageReference Include="SharpDX.DXGI" Version="4.2.0" />
-    <PackageReference Include="SharpDX.Mathematics" Version="4.2.0" />
-    <PackageReference Include="System.IO.Ports" Version="4.6.0-preview3.19128.7" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\HueHue.Common\HueHue.Common.csproj" />
     <ProjectReference Include="..\HueHue.Devices\HueHue.Devices.csproj" />
+    <ProjectReference Include="..\HueHue.Plugin.AmbientLight\AmbientLight.Plugin.csproj" />
+    <ProjectReference Include="..\HueHue.PluginBase\HueHue.PluginBase.csproj" />
   </ItemGroup>
 
 </Project>

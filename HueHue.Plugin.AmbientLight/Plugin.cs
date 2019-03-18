@@ -1,8 +1,23 @@
 ﻿using System;
+using System.Threading.Tasks;
+using HueHue.Devices.Core;
+using HueHue.PluginBase;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace HueHue.Plugin.AmbientLight
+namespace AmbientLight.Plugin
 {
-    public class Plugin
+    [PluginEntry]
+    public class Plugin : IPlugin
     {
+        public void ConfigureServices(IServiceCollection services)
+        {
+            // We don't use this yet
+        }
+
+        public Task Start(IServiceProvider services)
+        {
+            new ScreenCapture(services.GetService<IDevice>()).Run();
+            return Task.CompletedTask;
+        }
     }
 }

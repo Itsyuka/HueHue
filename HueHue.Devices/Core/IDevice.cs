@@ -11,5 +11,8 @@ namespace HueHue.Devices.Core
         int MaxLedPerStrip { get; }
 
         IReadOnlyList<ILedStrip> LedStrips { get; }
+
+        void Start();
+        void Stop();
     }
 }

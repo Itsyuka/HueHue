@@ -9,5 +9,7 @@ namespace HueHue.Devices.Core
     {
         int Position { get; }
         Color Color { get; set; }
+
+        void SetColor(Color color);
     }
 }

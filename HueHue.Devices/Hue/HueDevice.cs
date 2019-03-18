@@ -50,6 +50,8 @@ namespace HueHue.Devices.Hue
                 throw new Exception("Port is already closed??? nani??");
             }
             timer.Dispose();
+            SetColor(Color.Black);
+            Update(null);
             serialPort.Close();
         }
 
