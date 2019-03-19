@@ -16,3 +16,7 @@ Currently it's static for a 24" screen with the input being from bottom right (o
 ## How it works
 
 Basically I use SharpDX to pull the frames from the screen, get the RGB values from the pointer, send that data to a buffer and update the Hue+ every 33 milliseconds using a timer (roughly 30hz polling rate). This method is the fastest I could think of by pulling data from the graphics card and using minimal CPU usage in the process.
+
+## Example
+
+[![HueHue AmbientLight Demo](http://img.youtube.com/vi/6wKyd9UVqio/0.jpg)](http://www.youtube.com/watch?v=6wKyd9UVqio)

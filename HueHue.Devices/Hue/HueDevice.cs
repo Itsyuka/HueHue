@@ -42,7 +42,7 @@ namespace HueHue.Devices.Hue
                 throw new Exception("Port is already open, how did you do this?");
             }
             serialPort.Open();
-            timer = new Timer(Update, new AutoResetEvent(true), 0, 1);
+            timer = new Timer(Update, new AutoResetEvent(true), 0, 33);
         }
 
         public void Stop()

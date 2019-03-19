@@ -71,7 +71,7 @@ namespace AmbientLight.Plugin
 
                     DataBox mapSource = device.ImmediateContext.MapSubresource(screenTexture, 0, MapMode.Read, MapFlags.None);
 
-                    int radius = 5;
+                    int radius = 2;
 
                     unsafe
                     {
