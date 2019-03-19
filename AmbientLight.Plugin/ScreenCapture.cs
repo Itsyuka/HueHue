@@ -16,13 +16,17 @@ namespace AmbientLight.Plugin
     public class ScreenCapture
     {
         private IDevice _ledDevice;
+        private bool _isRunning = false;
+
         public ScreenCapture(IDevice ledDevice)
         {
             _ledDevice = ledDevice;
         }
 
-        public void Run()
+        public void Start()
         {
+            _isRunning = true;
+
             const int numAdapter = 0;
             const int numOutput = 0;
 
@@ -53,7 +57,7 @@ namespace AmbientLight.Plugin
 
             OutputDuplication duplicatedOutput = output1.DuplicateOutput(device);
 
-            while (true)
+            while (_isRunning)
             {
                 try
                 {
@@ -114,5 +118,9 @@ namespace AmbientLight.Plugin
                 }
             }
         }
+
+        public void Stop()
+            => _isRunning = false;
+
     }
 }

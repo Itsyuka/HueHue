@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using HueHue.Common;
 using HueHue.Devices.Core;
+using Microsoft.Extensions.Configuration;
 
 namespace HueHue.Devices.Hue
 {
@@ -24,9 +25,10 @@ namespace HueHue.Devices.Hue
 
         public IReadOnlyList<ILedStrip> LedStrips => strips.AsReadOnly();
 
-        public HueDevice(string portName = "COM4")
+        public HueDevice(IConfiguration configuration)
         {
-            serialPort = new SerialPort(portName, 256000, Parity.None, 8, StopBits.One);
+            var comPort = configuration["Devices:HuePlusv1:ComPort"];
+            serialPort = new SerialPort(comPort, 256000, Parity.None, 8, StopBits.One);
             for (int i = 0; i < MaxStripCount; i++)
             {
                 strips.Add(new HueStrip { Id = i });
@@ -40,7 +42,7 @@ namespace HueHue.Devices.Hue
                 throw new Exception("Port is already open, how did you do this?");
             }
             serialPort.Open();
-            timer = new Timer(Update, new AutoResetEvent(true), 0, 33);
+            timer = new Timer(Update, new AutoResetEvent(true), 0, 1);
         }
 
         public void Stop()

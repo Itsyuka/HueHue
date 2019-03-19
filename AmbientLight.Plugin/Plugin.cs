@@ -1,17 +1,31 @@
 ﻿using System;
-using System.Threading.Tasks;
+using System.Collections.Generic;
+using AmbientLight.Plugin.Modes;
 using HueHue.Devices.Core;
 using HueHue.PluginBase;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace AmbientLight.Plugin
 {
-    [PluginEntry]
     public class Plugin : IPlugin
     {
-        public void ConfigureServices(IServiceProvider services)
+        public string Name => "AmbientLight";
+
+        public string Version => "0.0.1";
+
+        private List<IMode> _modes = new List<IMode>();
+
+        public IReadOnlyList<IMode> Modes => _modes.AsReadOnly();
+
+        private readonly IDevice _device;
+        private readonly ILogger<Plugin> _logger;
+
+        public Plugin(ILogger<Plugin> logger, IDevice device)
         {
-            // We don't use this yet
+            _logger = logger;
+            _device = device;
+
+            _modes.Add(new Ambient(device));
         }
     }
 }

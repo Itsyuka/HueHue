@@ -10,7 +10,7 @@ namespace HueHue.Services
 {
     public class DeviceService : IHostedService
     {
-        private IDevice _device;
+        private readonly IDevice _device;
 
         public DeviceService(IDevice device)
         {

@@ -13,7 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueHue.Devices", "HueHue.De
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueHue.Common", "HueHue.Common\HueHue.Common.csproj", "{CABA305B-4992-40D4-B7F6-050F3074E656}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HueHue", "HueHue\HueHue.csproj", "{DB4FA40E-8525-43CC-A6BD-1986A7851EAA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HueHue", "HueHue\HueHue.csproj", "{DB4FA40E-8525-43CC-A6BD-1986A7851EAA}"
+	ProjectSection(ProjectDependencies) = postProject
+		{98A04436-A0A5-4FAA-80C8-B3987DCAF84B} = {98A04436-A0A5-4FAA-80C8-B3987DCAF84B}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
