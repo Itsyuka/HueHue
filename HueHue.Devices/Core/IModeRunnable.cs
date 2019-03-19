@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace HueHue.Devices.Core
 {
     public interface IModeRunnable
     {
-        void Start();
+        Task StartAsync();
 
-        void Stop();
+        Task StopAsync();
     }
 }

@@ -64,7 +64,7 @@ namespace HueHue.Services
 
             if (selectedMode is IModeRunnable mode)
             {
-                mode.Start();
+                mode.StartAsync();
             }
             
             return Task.CompletedTask;
@@ -76,7 +76,7 @@ namespace HueHue.Services
 
             if (selectedMode is IModeRunnable mode)
             {
-                mode.Stop();
+                mode.StopAsync();
             }
 
             return Task.CompletedTask;

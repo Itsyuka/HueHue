@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 using HueHue.Devices.Core;
 
 namespace AmbientLight.Plugin.Modes
@@ -16,10 +17,10 @@ namespace AmbientLight.Plugin.Modes
             _screenCapture = new ScreenCapture(device);
         }
 
-        public void Start()
-            => _screenCapture.Start();
+        public Task StartAsync()
+            => Task.Run(() => _screenCapture.Start());
 
-        public void Stop()
-            => _screenCapture.Stop();
+        public Task StopAsync()
+            => Task.Run(() => _screenCapture.Stop());
     }
 }
